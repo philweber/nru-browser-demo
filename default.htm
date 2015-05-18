@@ -1,0 +1,663 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+    <title>New Relic | New Relic University</title>
+
+	<link rel="stylesheet" href="./css/main.css" />
+	<style type="text/css">
+		#tabs {	background: #fff; margin-top: 12pt; width: 48em; }
+		#tabs div.displayed > * { margin-left: 230px; width: 34em; }
+		ul.tabs { list-style: none; margin: 0; padding: 0; float: left; border-right: solid 1px #ccc; }
+		ul.tabs li { width: 11em; margin: 0; padding: 0; text-align: left; }
+		ul.tabs li:hover { background: #eee; }
+		ul.tabs li a { display: block; padding: 6pt 14px; outline: none; }
+		ul.tabs li a:hover { text-decoration: underline; }
+		ul.tabs li.selected-tab { background: #fff; position: relative; left: 1px; border: solid 1px #ccc; border-right: 0; }
+		ul.tabs li a.selected-tab { font-weight: bold; text-decoration: none; }
+
+		.panel { margin-bottom:20px;background-color:#fff;border:1px solid transparent;border-radius:4px;-webkit-box-shadow:0 1px 1px rgba(0,0,0,0.05);box-shadow:0 1px 1px rgba(0,0,0,0.05); }
+		.panel-body { padding:15px; }
+		.panel-heading { padding:10px 15px;border-bottom:1px solid transparent;border-top-right-radius:3px;border-top-left-radius:3px; }
+		.panel-title { margin-top:0;margin-bottom:0;font-size:16px;color:inherit; }
+		.panel-footer { padding:10px 15px;background-color:#f5f5f5;border-top:1px solid #ddd;border-bottom-right-radius:3px;border-bottom-left-radius:3px; }
+		.panel > .list-group,.panel > .panel-collapse > .list-group { margin-bottom:0;}
+		.panel > .list-group .list-group-item,.panel > .panel-collapse > .list-group .list-group-item { border-width:1px 0;border-radius:0; }
+		.panel > .list-group:first-child .list-group-item:first-child,.panel > .panel-collapse > .list-group:first-child .list-group-item:first-child { border-top:0;border-top-right-radius:3px;border-top-left-radius:3px; }
+		.panel > .list-group:last-child .list-group-item:last-child,.panel > .panel-collapse > .list-group:last-child .list-group-item:last-child { border-bottom:0;border-bottom-right-radius:3px;border-bottom-left-radius:3px; }
+		.panel-group { margin-bottom:20px; }
+		.panel-group .panel { margin-bottom:0;overflow:hidden;border-radius:4px; }
+		.panel-group .panel + .panel { margin-top:5px; }
+		.panel-group .panel-heading { border-bottom:0; }
+		.panel-group .panel-heading + .panel-collapse > .panel-body,.panel-group .panel-heading + .panel-collapse > .list-group { border-top:1px solid #ddd; }
+		.panel-group .panel-footer { border-top:0; }
+		.panel-group .panel-footer + .panel-collapse .panel-body { border-bottom:1px solid #ddd; }
+		.panel-default { border-color:#ddd; }
+		.panel-default > .panel-heading { color:#333;background-color:#f5f5f5;border-color:#ddd; }
+		.panel-default > .panel-heading + .panel-collapse > .panel-body { border-top-color:#ddd; }
+		.panel-default > .panel-heading .badge { color:#f5f5f5;background-color:#333; }
+		.panel-default > .panel-footer + .panel-collapse > .panel-body { border-bottom-color:#ddd; }
+		.panel-primary { border-color:#337ab7; }
+		.panel-primary > .panel-heading { color:#fff;background-color:#337ab7;border-color:#337ab7; }
+		.panel-primary > .panel-heading + .panel-collapse > .panel-body { border-top-color:#337ab7; }
+		.panel-primary > .panel-heading .badge { color:#337ab7;background-color:#fff; }
+		.panel-primary > .panel-footer + .panel-collapse > .panel-body { border-bottom-color:#337ab7; }
+		.panel-heading > .dropdown .dropdown-toggle,.panel-title > a { color:inherit; }
+		.panel-heading + .list-group .list-group-item:first-child,.list-group + .panel-footer { border-top-width:0; }
+
+        .social iframe { vertical-align: middle; }
+        .social .Facebook { margin-top: 2px; }
+        .social span { display: inline-block; width: 95px; }
+	</style>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<script src="js/jquery-2.1.4.js"></script>
+	<script src="js/jquery.easytabs.js"></script>
+</head>
+<body>
+    <!-- Facebook JavaScript SDK -->
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "http://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=238260213735";
+          fjs.parentNode.insertBefore(js, fjs);
+        } (document, 'script', 'facebook-jssdk'));
+    </script>
+
+	<nav class="site" id="nav-header">
+		<span class="logo">
+			<img alt="New Relic" src="./assets/logo_46.png">
+		</span>
+	</nav>
+	<div class="wrapper">
+		<section class="page-content">
+			<h1 class="title" id="page-title">New Relic University</h1>
+			<h3>
+				<img alt="New Relic University" src="./assets/nrulogo2_0.png" style="float: left; margin-bottom: 18pt;margin-right: 18pt" width="250">
+				New Relic University empowers you to gain the insight you need to make better decisions about your software.
+			</h3>
+			<p>From short video tutorials to comprehensive webcasts, you'll find educational resources for all levels of users—beginner to advanced—on a wide range of topics. You can follow along with step-by-step tutorials and gain a deeper understanding of Application Performance Monitoring concepts with in-depth trainings.</p>
+
+            <div class="social">
+                <span class="Facebook">
+                    <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-height="23" data-width="92" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></div>
+                </span>
+                <span class="twitter">
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-text="Visit http://docs.newrelic.com/nru for great @newrelic training resources." data-related="newrelic" data-count="none">Tweet</a>
+                </span>
+            </div>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+            <div class="clear" />
+
+			<h3>Learning Resource Categories</h3>
+			<div id="tabs">
+				<ul class="tabs" style="height: 8in">
+					<li><a href="#webinar">Webcast Trainings</a></li>
+				    <li><a href="#insights">Insights</a></li>
+				    <li><a href="#synthetics">Synthetics</a></li>
+					<li><a href="#agent-install">Agent Installation</a></li>
+					<li><a href="#apm">APM</a></li>
+				    <li><a href="#mobile">Mobile Monitoring</a></li>
+					<li><a href="#servers">Server Monitoring</a></li>
+				    <li><a href="#info">Finding Information</a></li>
+				</ul>
+		  		<div id="webinar">
+					<h3>Webcast Trainings</h3>
+					<p>Webcasts are 60- to 90-minute sessions covering a variety of topics that will help you get the most value from your New Relic products. Your New Relic instructor will take you step-by-step through the topics so you can listen, learn, and ask questions. We encourage anyone who is just getting started with New Relic to register for these free educational web courses.</p>
+	  				<p>Select a webcast below to see more information, register for free, and start learning!</p>
+
+					<h3>Upcoming Webcasts</h3>
+
+					<div class="panel-group">
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">Getting Started with New Relic APM, June 9, 2015 | 1:00PM PDT</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+									<div style="margin-bottom: 4px"><a href="http://newrelic.com/webinar/getting-started-with-apm-150609">June 9, 2015 | 1:00PM PDT</a></div>
+									<div style="margin-bottom: 4px"><a href="http://newrelic.com/webinar/getting-started-with-apm-150609">Register today!</a></div>
+									<div style="margin-bottom: 6pt"><strong>Audience:</strong> This course is designed for developers and system administrators who will use New Relic to monitor the performance of web applications.</div>
+
+									<div style="margin-bottom: 6pt;">In this session, you’ll learn:</div>
+
+									<ul >
+										<li>How New Relic collects application metrics</li>
+										<li>What Apdex is and how it is calculated</li>
+										<li>How to use New Relic to identify performance issues</li>
+										<li>Transcation Traces</li>
+										<li>Error Traces</li>
+										<li>Browser Monitoring</li>
+										<li>How to configure alerts and availability monitoring</li>
+										<li>How to create custom dashboards</li>
+									</ul>
+
+									<div></div>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">Using New Relic APM to Monitor Performance & Availability, June 11, 2015 | 8:00AM PDT</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+									<div style="margin-bottom: 4px"><a href="http://newrelic.com/webinar/monitoring-performance-and-availability-with-apm-150611">June 11, 2015 | 8:00AM PDT</a></div>
+									<div style="margin-bottom: 4px"><a href="http://newrelic.com/webinar/monitoring-performance-and-availability-with-apm-150611">Register today!</a></div>
+									<div style="margin-bottom: 6pt"><strong>Audience:</strong> This course is designed for developers and system administrators who will use New Relic to monitor the performance of web applications.</div>
+
+									<div style="margin-bottom: 6pt;">The New Relic dashboard is super-cool, but who has time to sit around watching it all day? In this session, you’ll learn:</div>
+
+									<ul >
+										<li>How New Relic Alerting works</li>
+										<li>How to use Alert Policies</li>
+										<li>How to configure server and availability monitoring</li>
+										<li>How to use Channels and Groups to manage who gets notified, and how</li>
+									</ul>
+									<div></div>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">New Relic APM Power User Tips & Tricks, May 19, 2015 | 7:00AM PDT</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+									<div style="margin-bottom: 4px"><a href="http://newrelic.com/webinar/apm-power-user-tips-and-tricks-150519">May 19, 2015 | 7:00AM PDT</a></div>
+									<div style="margin-bottom: 4px"><a href="http://newrelic.com/webinar/apm-power-user-tips-and-tricks-150519">Register today!</a></div>
+									<div style="margin-bottom: 6pt"><strong>Audience:</strong> This course is designed for customers with some experience using New Relic APM, who want to take it to the next level.</div>
+
+									<div style="margin-bottom: 6pt;">It’s easy to get started with New Relic APM: Simply add the agent to your application and set a couple of configuration settings, and in just a few minutes you get a wealth of performance data.</div>
+									<div style="margin-bottom: 6pt;">But there are a number of less-used features that can make New Relic even more powerful. In this session, you’ll learn how to use some of these advanced features:</div>
+
+									<ul >
+										<li>Labels and rollups</li>
+										<li>Thread profiling and X-ray sessions</li>
+										<li>Deployment tracking</li>
+										<li>Using the New Relic API</li>
+									</ul>
+									<div></div>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">Getting Started with New Relic Insights, May 21, 2015 | 10:00AM PDT</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+									<div style="margin-bottom: 4px"><a href="http://newrelic.com/webinar/getting-started-with-insights-150521">May 21, 2015 | 10:00AM PDT</a></div>
+									<div style="margin-bottom: 4px"><a href="http://newrelic.com/webinar/getting-started-with-insights-150521">Register today!</a></div>
+									<div style="margin-bottom: 6pt"><strong>Audience:</strong> This course is designed for New Relic customers who are new to Insights or are curious about what Insights can do for them.</div>
+
+									<div style="margin-bottom: 6pt;">New Relic captures a ton of information about your application. Wouldn’t it be great if you could mine that data to help make business decisions? This course will teach you how to use New Relic Insights to answer all those questions your bosses keep asking. You’ll learn:</div>
+
+									<ul >
+										<li>What New Relic Insights is and why you should care</li>
+										<li>How to navigate the Insights user interface</li>
+										<li>How to use New Relic Query Language (NRQL) to create queries</li>
+										<li>How to use dashboards to display query results</li>
+									</ul>
+									<div></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="insights">
+					<h3>Insights</h3>
+					<p>New Relic Insights is a real-time analytics platform that allows you to make fast and informed decisions about your software, customers, and business.</p>
+	  				<p>Select a topic below to open a tutorial and start learning!</p>
+
+					<div class="panel-group">
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">Introduction to Insights Concepts (Part 1 of 3)</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+                                    <h3 style="margin-top: 3pt; margin-bottom: 2pt">Introduction to Insights Concepts (Part 1 of 3)</h3>
+                                    <h4 style="margin-top: 0; margin-bottom: 6pt">A conceptual overview for understanding Insights data</h4>
+									<div style="margin-bottom: 4px">With New Relic Insights, you can collect and analyze data about your business's user behavior, transactions, customer insights and more.</div>
+									<div style="margin-bottom: 12pt">This is part one of a three-part video tutorial series that gives a brief overview of how Insights fits into the bigger picture of New Relic APM products and Insights uses and important features.</div>
+
+                                    <p class="article-image"><iframe allowtransparency="true" class="wistia_embed" frameborder="0" height="309" name="wistia_embed" scrolling="yes" src="http://fast.wistia.net/embed/iframe/sokmwttrfv?endVideoBehavior=reset&amp;playButton=false&amp;playerColor=4cb0bd&amp;version=v1&amp;videoHeight=309&amp;videoWidth=550&amp;volumeControl=true" width="550"></iframe><br />
+                                    <span class="image-caption"><a href="https://discuss.newrelic.com/t/video-introduction-to-insights-concepts-part-1-of-3/11452">Visit the community forum to discuss this video or submit new topic ideas.</a></span></p>
+
+                                    <hr class="hr2" />
+                                    <div id="surveyMonkeyInfo">
+                                        <div><script src="https://www.surveymonkey.com/jsEmbed.aspx?sm=2YRcPehtuF0ZcgzD3oEYxQ_3d_3d"> </script></div>
+                                    </div>
+                                </div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">Introduction to Insights Concepts (Part 2 of 3)</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+                                    <h3 style="margin-top: 3pt; margin-bottom: 2pt">Introduction to Insights Concepts (Part 2 of 3)</h3>
+                                    <h4 style="margin-top: 0; margin-bottom: 6pt">Understanding Insights data customization options and processes</h4>
+									<div style="margin-bottom: 4px">With New Relic Insights, you can customize the data being collected about your app to fit your unique business needs.</div>
+									<div style="margin-bottom: 12pt">This is part two of a three-part video tutorial series that gives a brief overview of Insights data types, structures, and customization options, including adding custom attributes and custom events.</div>
+
+                                    <p class="article-image"><iframe allowtransparency="true" class="wistia_embed" frameborder="0" height="309" name="wistia_embed" scrolling="yes" src="http://fast.wistia.net/embed/iframe/vprkakqpm1?endVideoBehavior=reset&amp;playButton=false&amp;playerColor=4cb0bd&amp;version=v1&amp;videoHeight=309&amp;videoWidth=550&amp;volumeControl=true" width="550"></iframe><br />
+                                    <span class="image-caption"><a href="https://discuss.newrelic.com/t/video-introduction-to-insights-data-part-2-of-3/11451">Visit the community forum to discuss this video or submit new topic ideas.</a></span></p>
+
+                                    <hr class="hr2" />
+                                    <div id="surveyMonkeyInfo">
+                                        <div><script src="https://www.surveymonkey.com/jsEmbed.aspx?sm=DhtaIWDfqcBnMyyDOV6wpg_3d_3d"> </script></div>
+                                    </div>
+                                </div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">Introduction to Insights Concepts (Part 3 of 3)</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+                                    <h3 style="margin-top: 3pt; margin-bottom: 2pt">Introduction to Insights Concepts (Part 3 of 3)</h3>
+                                    <h4 style="margin-top: 0; margin-bottom: 6pt">Navigating the Insights UI and creating dashboards</h4>
+									<div style="margin-bottom: 4px">With New Relic Insights, you can display the data you collect about your app in beautiful, custom dashboards that make it easy to analyze your business’s user behavior, transactions, customer insights, and more.</div>
+									<div style="margin-bottom: 12pt">This is part three of a three-part video tutorial series that covers how to navigate the Insights UI, how to write queries to create charts and graphs, and how to create and edit dashboards.</div>
+
+                                    <p class="article-image"><iframe allowtransparency="true" class="wistia_embed" frameborder="0" height="309" name="wistia_embed" scrolling="yes" src="http://fast.wistia.net/embed/iframe/gppbjgfnp5?endVideoBehavior=reset&amp;playButton=false&amp;playerColor=4cb0bd&amp;version=v1&amp;videoHeight=309&amp;videoWidth=550&amp;volumeControl=true" width="550"></iframe><br />
+                                    <span class="image-caption"><a href="https://discuss.newrelic.com/t/video-introduction-to-insights-dashboards-part-3-of-3/11450">Visit the community forum to discuss this video or submit new topic ideas.</a></span></p>
+                                </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="synthetics">
+					<p style="margin-bottom: 12pt;">New Relic Synthetics allows you to monitor and test your apps and address issues before they affect your end users. Explore everything from easy-to-read waterfall charts and test results to detailed downtime and error reports.</p>
+
+					<div class="panel-group">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<strong class="panel-title">Getting Started with New Relic Synthetics</strong>
+							</div>
+							<div class="panel-body">
+								<div>
+									<div style="margin-bottom: 12pt;">In this video, you’ll learn what New Relic Synthetics is and how it’s different from New Relic Browser. You’ll also learn how to create a monitor and view its results, and how to query Synthetics data in New Relic Insights.</div>
+
+                                    <p class="article-image"><iframe allowtransparency="true" class="wistia_embed" frameborder="0" height="309" name="wistia_embed" scrolling="yes" src="http://fast.wistia.net/embed/iframe/b8qtg4gfvv?endVideoBehavior=reset&amp;playButton=false&amp;playerColor=4cb0bd&amp;version=v1&amp;videoHeight=309&amp;videoWidth=550&amp;volumeControl=true" width="550"></iframe><br />
+                                    <span class="image-caption"><a href="https://discuss.newrelic.com/t/video-getting-started-with-new-relic-synthetics/13266">Visit the community forum to discuss this video or submit new topic ideas.</a></span></p>
+                                </div>
+							</div>
+						</div>
+                    </div>
+				</div>
+				<div id="agent-install">
+					<h3>Agent Installation</h3>
+					<p>For New Relic to function, your application must be able to connect to the New Relic servers to report your performance data. Refer to your specific New Relic agent's instructions about compatibility and requirements, installation, and configuration.</p>
+	  				<p>Select a topic below to open a tutorial and start learning!</p>
+
+					<div class="panel-group">
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">Getting Started with New Relic APM: Installing the Agent</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+                                    <h3 style="margin-top: 3pt; margin-bottom: 2pt">Getting Started with New Relic APM: Installing the Agent</h3>
+									<div style="margin-bottom: 12pt">In this video, you'll learn what APM is, how New Relic works, and how to start capturing performance data by adding the New Relic Agent to your application.</div>
+
+                                    <p class="article-image"><iframe allowtransparency="true" class="wistia_embed" frameborder="0" height="309" name="wistia_embed" scrolling="yes" src="http://fast.wistia.net/embed/iframe/30fgn3ghp6?endVideoBehavior=reset&amp;playButton=false&amp;playerColor=4cb0bd&amp;version=v1&amp;videoHeight=309&amp;videoWidth=550&amp;volumeControl=true" width="550"></iframe><br />
+                                    <span class="image-caption"><a href="https://discuss.newrelic.com/t/video-agent-installation/5200">Visit the community forum to discuss this video or submit new topic ideas.</a></span></p>
+                                </div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">Installing the .NET Agent</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+                                    <h3 style="margin-top: 3pt; margin-bottom: 2pt">Installing the .NET Agent</h3>
+									<div style="margin-bottom: 12pt">In this tutorial, you will learn how to install the .NET agent by downloading the software, running the installer, and how to use other optional installation features.</div>
+
+                                    <p class="article-image"><iframe allowtransparency="true" class="wistia_embed" frameborder="0" height="309" name="wistia_embed" scrolling="yes" src="http://fast.wistia.net/embed/iframe/4b4xcrm0w8?endVideoBehavior=reset&amp;playButton=false&amp;playerColor=4cb0bd&amp;version=v1&amp;videoHeight=309&amp;videoWidth=550&amp;volumeControl=true" width="550"></iframe><br />
+                                    <span class="image-caption"><a href="https://discuss.newrelic.com/t/video-installing-the-net-agent/12875">Visit the community forum to discuss this video or submit new topic ideas.</a></span></p>
+                                </div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">Installing the .NET Agent in an Azure Website</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+                                    <h3 style="margin-top: 3pt; margin-bottom: 2pt">Installing the .NET Agent in an Azure Website</h3>
+									<div style="margin-bottom: 12pt">In this tutorial, you will learn about your options for integrating New Relic and Azure Websites, configuring your Azure Website to use New Relic, installing the .NET agent in your project, and accessing your application performance data.</div>
+
+                                    <p class="article-image"><iframe allowtransparency="true" class="wistia_embed" frameborder="0" height="309" name="wistia_embed" scrolling="yes" src="http://fast.wistia.net/embed/iframe/2i54376si1?endVideoBehavior=reset&amp;playButton=false&amp;playerColor=4cb0bd&amp;version=v1&amp;videoHeight=309&amp;videoWidth=550&amp;volumeControl=true" width="550"></iframe><br />
+                                    <span class="image-caption"><a href="https://discuss.newrelic.com/t/video-installing-the-net-agent-in-an-azure-website/12877">Visit the community forum to discuss this video or submit new topic ideas.</a></span></p>
+                                </div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">Installing the .NET Agent in Azure Cloud Services</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+                                    <h3 style="margin-top: 3pt; margin-bottom: 2pt">Installing the .NET Agent in Azure Cloud Services</h3>
+									<div style="margin-bottom: 12pt">In this tutorial, you will learn how to install the .NET agent package in your Visual Studio project, what files are installed and modified by the installer, and how to view your data in New Relic.</div>
+
+                                    <p class="article-image"><iframe allowtransparency="true" class="wistia_embed" frameborder="0" height="309" name="wistia_embed" scrolling="yes" src="http://fast.wistia.net/embed/iframe/nqw8k83ttc?endVideoBehavior=reset&amp;playButton=false&amp;playerColor=4cb0bd&amp;version=v1&amp;videoHeight=309&amp;videoWidth=550&amp;volumeControl=true" width="550"></iframe><br />
+                                    <span class="image-caption"><a href="https://discuss.newrelic.com/t/video-installing-the-net-agent-azure-cloud-services/12874">Visit the community forum to discuss this video or submit new topic ideas.</a></span></p>
+                                </div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">Installing the Android Agent for Android Studio with Gradle</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+                                    <h3 style="margin-top: 3pt; margin-bottom: 2pt">Installing the Android Agent for Android Studio with Gradle</h3>
+									<div style="margin-bottom: 12pt">This tutorial will cover installing the New Relic Android agent into an existing Android Studio Gradle based project, securing appropriate permissions for the agent, initializing the agent, and enabling optional features.</div>
+
+                                    <p class="article-image"><iframe allowtransparency="true" class="wistia_embed" frameborder="0" height="309" name="wistia_embed" scrolling="yes" src="http://fast.wistia.net/embed/iframe/w3iej4l06q?endVideoBehavior=reset&amp;playButton=false&amp;playerColor=4cb0bd&amp;version=v1&amp;videoHeight=309&amp;videoWidth=550&amp;volumeControl=true" width="550"></iframe><br />
+                                    <span class="image-caption"><a href="https://discuss.newrelic.com/t/video-installing-the-android-agent-for-android-studio-with-gradle/15790/2">Visit the community forum to discuss this video or submit new topic ideas.</a></span></p>
+                                </div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">Installing the Node Agent</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+                                    <h3 style="margin-top: 3pt; margin-bottom: 2pt">Installing the Node Agent</h3>
+									<div style="margin-bottom: 12pt">This tutorial covers how to install the New Relic Node.js agent, incorporate it into your software, and configure the software.</div>
+
+                                    <p class="article-image"><iframe allowtransparency="true" class="wistia_embed" frameborder="0" height="309" name="wistia_embed" scrolling="yes" src="http://fast.wistia.net/embed/iframe/218w6hxkg1?endVideoBehavior=reset&amp;playButton=false&amp;playerColor=4cb0bd&amp;version=v1&amp;videoHeight=309&amp;videoWidth=550&amp;volumeControl=true" width="550"></iframe><br />
+                                    <span class="image-caption"><a href="https://discuss.newrelic.com/t/video-installing-the-node-agent/23273/1">Visit the community forum to discuss this video or submit new topic ideas.</a></span></p>
+                                </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="apm">
+					<h3>Application Performance Management (APM)</h3>
+					<p>New Relic APM gives you grouped views for quick diagnosis of domain-level problems. Drill down into specific requests to see performance metrics by response time, throughput, and data transfer size.</p>
+	  				<p>Select a topic below to open a tutorial and start learning!</p>
+
+					<div class="panel-group">
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">Improving Performance</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+                                    <h3 style="margin-top: 3pt; margin-bottom: 2pt">Getting Started with New Relic APM: Troubleshooting Performance Problems with New Relic</h3>
+									<div style="margin-bottom: 12pt">New Relic makes it possible for you to spend less time troubleshooting and more time building new features and products. Learning how to use New Relic is the first step towards a faster, better performing app. This tutorial video will show you how to get up and running with New Relic and how to troubleshoot a common application performance problem.</div>
+
+                                    <p class="article-image"><iframe allowtransparency="true" class="wistia_embed" frameborder="0" height="309" name="wistia_embed" scrolling="yes" src="http://fast.wistia.net/embed/iframe/9p0v0qgmza?endVideoBehavior=reset&amp;playButton=false&amp;playerColor=4cb0bd&amp;version=v1&amp;videoHeight=309&amp;videoWidth=550&amp;volumeControl=true" width="550"></iframe><br />
+                                    <span class="image-caption"><a href="https://discuss.newrelic.com/t/video-improving-performance-troubleshooting-performance-problems-with-new-relic/5542">Visit the community forum to discuss this video or submit new topic ideas.</a></span></p>
+                                </div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">Transaction and Error Traces</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+                                    <h3 style="margin-top: 3pt; margin-bottom: 2pt">Getting Started with New Relic APM: Using Transaction and Error Traces</h3>
+									<div style="margin-bottom: 12pt">Learn how to use Transaction and Error Traces to troubleshoot performance problems in your application.</div>
+
+                                    <p class="article-image"><iframe allowtransparency="true" class="wistia_embed" frameborder="0" height="309" name="wistia_embed" scrolling="yes" src="http://fast.wistia.net/embed/iframe/lch8ml2qn0?endVideoBehavior=reset&amp;playButton=false&amp;playerColor=4cb0bd&amp;version=v1&amp;videoHeight=309&amp;videoWidth=550&amp;volumeControl=true" width="550"></iframe><br />
+                                    <span class="image-caption"><a href="https://discuss.newrelic.com/t/video-using-transaction-and-error-traces-getting-started-with-new-relic-apm/10283">Visit the community forum to discuss this video or submit new topic ideas.</a></span></p>
+                                </div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">Understanding Apdex</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+                                    <h3 style="margin-top: 3pt; margin-bottom: 2pt">Getting Started with New Relic APM: Understanding Apdex</h3>
+									<div style="margin-bottom: 12pt">In this video, you’ll learn what Apdex is, how it’s calculated, and how to choose an appropriate Apdex threshold for your application.</div>
+
+                                    <p class="article-image"><iframe allowtransparency="true" class="wistia_embed" frameborder="0" height="309" name="wistia_embed" scrolling="yes" src="http://fast.wistia.net/embed/iframe/ed0sc5053k?endVideoBehavior=reset&amp;playButton=false&amp;playerColor=4cb0bd&amp;version=v1&amp;videoHeight=309&amp;videoWidth=550&amp;volumeControl=true" width="550"></iframe><br />
+                                    <span class="image-caption"><a href="https://discuss.newrelic.com/t/video-getting-started-with-new-relic-apm-understanding-apdex/5544">Visit the community forum to discuss this video or submit new topic ideas.</a></span></p>
+                                </div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">Key Transactions</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+                                    <h3 style="margin-top: 3pt; margin-bottom: 2pt">Getting Started with New Relic APM: Using Key Transactions</h3>
+									<div style="margin-bottom: 12pt">New Relic groups your apps data into useful data components called transactions which are usually based on the method names in your app. Because some transactions are more important to your business than others, New Relic's Key Transactions feature lets you closely monitor and receive alerts about these business critical transactions.</div>
+
+                                    <p class="article-image"><iframe allowtransparency="true" class="wistia_embed" frameborder="0" height="309" name="wistia_embed" scrolling="yes" src="http://fast.wistia.net/embed/iframe/o0hvgxwd8y?endVideoBehavior=reset&amp;playButton=false&amp;playerColor=4cb0bd&amp;version=v1&amp;videoHeight=309&amp;videoWidth=550&amp;volumeControl=true" width="550"></iframe><br />
+                                    <span class="image-caption"><a href="https://discuss.newrelic.com/t/using-key-transactions/8327">Visit the community forum to discuss this video or submit new topic ideas.</a></span></p>
+                                </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="mobile">
+					<h3>Mobile Monitoring</h3>
+					<p>New Relic Mobile allows you to monitor and manage the performance of your iOS and Android applications by providing end-to-end performance details, including errors and throughput from every angle in real time. These tutorials show you how to use New Relic’s mobile APM (mAPM) toolset to bring your app's performance data to the surface so you can ensure your users are getting a great experience.</p>
+	  				<p>Select a topic below to open a tutorial and start learning!</p>
+
+					<div class="panel-group">
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">Installing the Android Agent for Android Studio with Gradle</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+                                    <h3 style="margin-top: 3pt; margin-bottom: 2pt">Installing the Android Agent for Android Studio with Gradle</h3>
+									<div style="margin-bottom: 12pt">This tutorial will cover installing the New Relic Android agent into an existing Android Studio Gradle based project, securing appropriate permissions for the agent, initializing the agent, and enabling optional features.</div>
+
+                                    <p class="article-image"><iframe allowtransparency="true" class="wistia_embed" frameborder="0" height="309" name="wistia_embed" scrolling="yes" src="http://fast.wistia.net/embed/iframe/w3iej4l06q?endVideoBehavior=reset&amp;playButton=false&amp;playerColor=4cb0bd&amp;version=v1&amp;videoHeight=309&amp;videoWidth=550&amp;volumeControl=true" width="550"></iframe><br />
+                                    <span class="image-caption"><a href="https://discuss.newrelic.com/t/video-installing-the-android-agent-for-android-studio-with-gradle/15790/2">Visit the community forum to discuss this video or submit new topic ideas.</a></span></p>
+                                </div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">Mobile Monitoring Overview (Part 1 of 3)</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+                                    <h3 style="margin-top: 3pt; margin-bottom: 2pt">Mobile Monitoring Overview (Part 1 of 3)</h3>
+                                    <h4 style="margin-top: 0; margin-bottom: 6pt">An Introduction to New Relic's Mobile Monitoring App Overview Dashboards</h4>
+									<div style="margin-bottom: 12pt">This tutorial covers the features and information contained on the Main Overview Dashboard, the Interactions Dashboard, the Devices Dashboard, the Operating System (or OS) versions Dashboard, and Alerts Dashboard.</div>
+
+                                    <p class="article-image"><iframe allowtransparency="true" class="wistia_embed" frameborder="0" height="309" name="wistia_embed" scrolling="yes" src="http://fast.wistia.net/embed/iframe/o1inz1v0vl?endVideoBehavior=reset&amp;playButton=false&amp;playerColor=4cb0bd&amp;version=v1&amp;videoHeight=309&amp;videoWidth=550&amp;volumeControl=true" width="550"></iframe><br />
+                                    <span class="image-caption"><a href="https://discuss.newrelic.com/t/video-mobile-monitoring-overview-part-1-of-3/15745">Visit the community forum to discuss this video or submit new topic ideas.</a></span></p>
+                                </div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">Mobile Monitoring Network (Part 2 of 3)</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+                                    <h3 style="margin-top: 3pt; margin-bottom: 2pt">Mobile Monitoring Network (Part 2 of 3)</h3>
+									<div style="margin-bottom: 12pt">New Relic Mobile allows you to monitor and manage the performance of your iOS and Android applications by providing end-to-end performance details, including errors, and throughput from every angle in real time. This tutorial covers the features and information contained on the Map Dashboard, HTTP requests Dashboard, Errors Dashboard, Geography Dashboard, and Carriers Dashboard.</div>
+
+                                    <p class="article-image"><iframe allowtransparency="true" class="wistia_embed" frameborder="0" height="309" name="wistia_embed" scrolling="yes" src="http://fast.wistia.net/embed/iframe/8o4hvf67wx?endVideoBehavior=reset&amp;playButton=false&amp;playerColor=4cb0bd&amp;version=v1&amp;videoHeight=309&amp;videoWidth=550&amp;volumeControl=true" width="550"></iframe><br />
+                                    <span class="image-caption"><a href="https://discuss.newrelic.com/t/video-mobile-monitoring-network-part-2-of-3/16202">Visit the community forum to discuss this video or submit new topic ideas.</a></span></p>
+                                </div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">Mobile Monitoring Crashes (Part 3 of 3)</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+                                    <h3 style="margin-top: 3pt; margin-bottom: 2pt">Mobile Monitoring Crashes (Part 3 of 3)</h3>
+									<div style="margin-bottom: 12pt">New Relic Mobile allows you to monitor and manage the performance of your iOS and Android applications by providing end-to-end performance details, including errors, and throughput from every angle in real time. This tutorial covers the Crashes Dashboard, crash reporting, and how to enable Ticketing Integration.</div>
+
+                                    <p class="article-image"><iframe allowtransparency="true" class="wistia_embed" frameborder="0" height="309" name="wistia_embed" scrolling="yes" src="http://fast.wistia.net/embed/iframe/l2bmyznrdn?endVideoBehavior=reset&amp;playButton=false&amp;playerColor=4cb0bd&amp;version=v1&amp;videoHeight=309&amp;videoWidth=550&amp;volumeControl=true" width="550"></iframe><br />
+                                    <span class="image-caption"><a href="https://discuss.newrelic.com/t/video-mobile-monitoring-crashes-and-reporting-part-3-of-3/16203">Visit the community forum to discuss this video or submit new topic ideas.</a></span></p>
+                                </div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">Improving Performance with Mobile Monitoring</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+                                    <h3 style="margin-top: 3pt; margin-bottom: 2pt">Improving Performance with Mobile Monitoring</h3>
+									<div style="margin-bottom: 12pt">New Relic Mobile allows you to monitor and manage the performance of your iOS and Android applications and makes it possible for you to spend less time troubleshooting and more time building new features and products. Learning how to use New Relic Mobile Monitoring is the first step towards a faster, better performing app. This tutorial covers how to troubleshoot a few common application performance problems using New Relic’s Mobile Monitoring interactions dashboard, interaction traces, crash reports, and the HTTP requests dashboard.</div>
+
+                                    <p class="article-image"><iframe allowtransparency="true" class="wistia_embed" frameborder="0" height="309" name="wistia_embed" scrolling="yes" src="http://fast.wistia.net/embed/iframe/p3uf277ryp?endVideoBehavior=reset&amp;playButton=false&amp;playerColor=4cb0bd&amp;version=v1&amp;videoHeight=309&amp;videoWidth=550&amp;volumeControl=true" width="550"></iframe><br />
+                                    <span class="image-caption"><a href="https://discuss.newrelic.com/t/video-improving-performance-with-mobile-monitoring/23274">Visit the community forum to discuss this video or submit new topic ideas.</a></span></p>
+                                </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="servers">
+					<h3>Server Monitoring</h3>
+					<p>New Relic's Server Monitoring allows you to view and analyze critical system metrics like CPU and physical memory usage.</p>
+	  				<p>Select a topic below to open a tutorial and start learning!</p>
+
+					<div class="panel-group">
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">Installing the Linux Server Monitor</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+                                    <h3 style="margin-top: 3pt; margin-bottom: 2pt">Installing the Linux Server Monitor</h3>
+									<div style="margin-bottom: 12pt">New Relic's Linux Server Monitor allows you to view and analyze critical system metrics like CPU and physical memory usage. This tutorial covers installing the Linux Server Monitor package , configuring the software, and starting and stopping the monitoring service.</div>
+
+                                    <p class="article-image"><iframe allowtransparency="true" class="wistia_embed" frameborder="0" height="309" name="wistia_embed" scrolling="yes" src="http://fast.wistia.net/embed/iframe/aw9a70oj54?endVideoBehavior=reset&amp;playButton=false&amp;playerColor=4cb0bd&amp;version=v1&amp;videoHeight=309&amp;videoWidth=550&amp;volumeControl=true" width="550"></iframe><br />
+                                    <span class="image-caption"><a href="https://discuss.newrelic.com/t/video-installing-the-linux-server-monitor/14741">Visit the community forum to discuss this video or submit new topic ideas.</a></span></p>
+                                </div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">Installing the Windows Server Monitor</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+                                    <h3 style="margin-top: 3pt; margin-bottom: 2pt">Installing the Windows Server Monitor</h3>
+									<div style="margin-bottom: 12pt">This tutorial covers installing the Windows Server Monitor, managing the background service that the package installs, and configuring the software.</div>
+
+                                    <p class="article-image"><iframe allowtransparency="true" class="wistia_embed" frameborder="0" height="309" name="wistia_embed" scrolling="yes" src="http://fast.wistia.net/embed/iframe/g5cpiggb2k?endVideoBehavior=reset&amp;playButton=false&amp;playerColor=4cb0bd&amp;version=v1&amp;videoHeight=309&amp;videoWidth=550&amp;volumeControl=true" width="550"></iframe><br />
+                                    <span class="image-caption"><a href="https://discuss.newrelic.com/t/video-installing-the-windows-server-monitor/14443/1">Visit the community forum to discuss this video or submit new topic ideas.</a></span></p>
+                                </div>
+							</div>
+						</div>
+                    </div>
+				</div>
+				<div id="info">
+					<h3>Finding Information</h3>
+					<p>New Relic offers a variety of support options, including context-based online help, a documentation library with detailed procedures and troubleshooting tips, and support assistance.</p>
+	  				<p>Select a topic below to open a tutorial and start learning!</p>
+
+					<div class="panel-group">
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">Getting Support</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+                                    <h3 style="margin-top: 3pt; margin-bottom: 2pt">Getting Support</h3>
+									<div style="margin-bottom: 12pt">This video tutorial will outline resources you can use to troubleshoot issues on your own and guidelines for writing a support ticket with all the necessary information to get your issue resolved more quickly.</div>
+
+                                    <p class="article-image"><iframe allowtransparency="true" class="wistia_embed" frameborder="0" height="309" name="wistia_embed" scrolling="yes" src="http://fast.wistia.net/embed/iframe/beo9oc66ux?endVideoBehavior=reset&amp;playButton=false&amp;playerColor=4cb0bd&amp;version=v1&amp;videoHeight=309&amp;videoWidth=550&amp;volumeControl=true" width="550"></iframe><br />
+                                    <span class="image-caption"><a href="https://discuss.newrelic.com/t/video-getting-support/5201">Visit the community forum to discuss this video or submit new topic ideas.</a></span></p>
+                                </div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">Navigating the Docs Site</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+                                    <h3 style="margin-top: 3pt; margin-bottom: 2pt">Navigating the Docs Site</h3>
+									<div style="margin-bottom: 12pt">The New Relic Technical Documentation site is one of the best ways to learn just about anything you want to know about New Relic. Watch this video to get an overview of the contents and organization of the New Relic Technical Documentation site, or “Docs Site”. You will learn how to navigate the Docs Site through the search feature and through the site’s user interface in order to find the information you need.</div>
+
+                                    <p class="article-image"><iframe allowtransparency="true" class="wistia_embed" frameborder="0" height="309" name="wistia_embed" scrolling="yes" src="http://fast.wistia.net/embed/iframe/i52idnujbw?endVideoBehavior=reset&amp;playButton=false&amp;playerColor=4cb0bd&amp;version=v1&amp;videoHeight=309&amp;videoWidth=550&amp;volumeControl=true" width="550"></iframe><br />
+                                    <span class="image-caption"><a href="https://discuss.newrelic.com/t/video-navigating-the-docs-site/5202">Visit the community forum to discuss this video or submit new topic ideas.</a></span></p>
+                                </div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading collapsable panel-collapsed">
+								<strong class="panel-title">Using the New Relic Community Forum</strong>
+							</div>
+							<div class="panel-body" style="display: none;">
+								<div>
+                                    <h3 style="margin-top: 3pt; margin-bottom: 2pt">Using the New Relic Community Forum</h3>
+									<div style="margin-bottom: 12pt">This video tutorial will cover how to get set up with an account, how to find information and ask questions, how to participate in the community forum, and how to set your account preferences so you receive all the news and updates you need to get the most out of your New Relic account.</div>
+
+                                    <p class="article-image"><iframe allowtransparency="true" class="wistia_embed" frameborder="0" height="309" name="wistia_embed" scrolling="yes" src="http://fast.wistia.net/embed/iframe/ds1l2fpsne?endVideoBehavior=reset&amp;playButton=false&amp;playerColor=4cb0bd&amp;version=v1&amp;videoHeight=309&amp;videoWidth=550&amp;volumeControl=true" width="550"></iframe><br />
+                                    <span class="image-caption"><a href="https://discuss.newrelic.com/t/video-community-forum-introduction/4977">Visit the community forum to discuss this video or submit new topic ideas.</a></span></p>
+                                </div>
+							</div>
+						</div>
+                    </div>
+                </div>
+			</div>
+		</section>
+		<div class="clear" />
+		<footer class="page-footer">
+
+		</footer>
+	</div>
+	<script>
+	$(function() {
+		$("#tabs").easytabs(
+			{
+  				animate: false,
+				tabActiveClass: "selected-tab",
+				panelActiveClass: "displayed"
+			}
+		);
+
+		jQuery(function ($) {
+			$('.panel-heading.collapsable').on("click", function (e) {
+				if ($(this).hasClass('panel-collapsed')) {
+					// expand the panel
+					$(this).parents('.panel').find('.panel-body').slideDown();
+					$(this).removeClass('panel-collapsed');
+					$(this).find('i').removeClass('fa-toggle-down').addClass('fa-toggle-up');
+				}
+				else {
+					// collapse the panel
+					$(this).parents('.panel').find('.panel-body').slideUp();
+					$(this).addClass('panel-collapsed');
+					$(this).find('i').removeClass('fa-toggle-up').addClass('fa-toggle-down');
+				}
+			});
+		});
+	});
+	</script>
+</body>
+</html>
