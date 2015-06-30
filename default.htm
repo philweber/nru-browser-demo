@@ -639,7 +639,7 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
 	<script>
 	  $(function() {
        var count_err = 0;
-       var custom_SERVICE_count = Math.floor((Math.random()*1000)%500);
+       //var custom_SERVICE_count = Math.floor((Math.random()*1000)%500);
       $("#tabs").easytabs(
 			{
   				animate: false,
@@ -650,10 +650,10 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
 
 		jQuery(function ($) {
 			$('.panel-heading.collapsable').on("click", function (e) {
-                var err = new Error("THIS IS THE COOLEST ERROR EVER BRO");
+                var err = new Error("This here is a custom error");
                 count_err++; 
-                newrelic.setCustomAttribute("Custom Service Count", custom_SERVICE_count)
-                if (count_err%2 != 0) newrelic.noticeError(err);
+                //newrelic.setCustomAttribute("Custom Service Count", custom_SERVICE_count)
+                if (count_err%2 != 0) throw err; //newrelic.noticeError(err);
                 if ($(this).hasClass('panel-collapsed')) {
 					// expand the panel
 					$(this).parents('.panel').find('.panel-body').slideDown();
