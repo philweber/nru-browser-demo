@@ -7,7 +7,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
-
+    
     <title>New Relic | New Relic University</title>
 
 	<link rel="stylesheet" href="css/main.css" />
@@ -67,13 +67,13 @@
     <!-- Facebook JavaScript SDK -->
     <div id="fb-root"></div>
     <script>
-        (function(d, s, id) {
+      (function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "http://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=238260213735";
-          fjs.parentNode.insertBefore(js, fjs);
-        } (document, 'script', 'facebook-jssdk'));
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "http://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=238260213735";
+      fjs.parentNode.insertBefore(js, fjs);
+      } (document, 'script', 'facebook-jssdk'));
     </script>
 
 	<nav class="site" id="nav-header">
@@ -632,8 +632,10 @@
 		</footer>
 	</div>
 	<script>
-	$(function() {
-		$("#tabs").easytabs(
+	  $(function() {
+       var count_err = 0;
+       //var custom_SERVICE_count = Math.floor((Math.random()*1000)%500);
+      $("#tabs").easytabs(
 			{
   				animate: false,
 				tabActiveClass: "selected-tab",
@@ -643,7 +645,11 @@
 
 		jQuery(function ($) {
 			$('.panel-heading.collapsable').on("click", function (e) {
-				if ($(this).hasClass('panel-collapsed')) {
+                var err = new Error("This here is a custom error");
+                count_err++; 
+                //newrelic.setCustomAttribute("Custom Service Count", custom_SERVICE_count)
+                if (count_err%2 != 0) throw err; //newrelic.noticeError(err);
+                if ($(this).hasClass('panel-collapsed')) {
 					// expand the panel
 					$(this).parents('.panel').find('.panel-body').slideDown();
 					$(this).removeClass('panel-collapsed');

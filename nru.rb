@@ -3,12 +3,12 @@ require 'watir-webdriver'
 @rooturl = 'http://www.philweber.com/newrelic/browser/default.htm'
 
 case ARGV[0]
-  when 'ff', 'Firefox'
-    @b = Watir::Browser.new :firefox
-  when 'chrome'
-    @b = Watir::Browser.new :chrome
-  else
-    @b = Watir::Browser.new :phantomjs
+when 'ff', 'Firefox'
+  @b = Watir::Browser.new :firefox
+when 'chrome'
+  @b = Watir::Browser.new :chrome
+else
+  @b = Watir::Browser.new :phantomjs
 end
 
 while true do
