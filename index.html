@@ -634,6 +634,7 @@
 	</div>
 	<script>
 	$(function() {
+	    clickCount = 0;
 		$("#tabs").easytabs(
 			{
   				animate: false,
@@ -643,6 +644,14 @@
 		);
 
 		jQuery(function ($) {
+			// throw error on every third panel click
+			clickCount++;
+			if (clickCount % 3 == 0)
+			{
+				throw new Error("Congratulations! You found the Easter Egg.");
+				clickCount = 0;
+			}
+			
 			$('.panel-heading.collapsable').on("click", function (e) {
 				if ($(this).hasClass('panel-collapsed')) {
 					// expand the panel
