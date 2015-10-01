@@ -681,7 +681,7 @@
 	
 	$(window).load(
 		function() {
-			var domDuration = (performance.timing.domComplete - performance.timing.navigationStart) / 1000;
+			var domDuration = (performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart) / 1000;
 			newrelic.setCustomAttribute('domLoadDuration', domDuration);
 		}	
 	);
