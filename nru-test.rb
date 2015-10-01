@@ -1,6 +1,6 @@
 require 'watir-webdriver'
 
-@rooturl = 'http://www.philweber.com/newrelic/browser/default.htm'
+@rooturl = 'http://philweber.github.io/nru-browser-demo/index.html'
 
 case ARGV[0]
   when 'ff', 'Firefox'
@@ -11,13 +11,23 @@ case ARGV[0]
     @b = Watir::Browser.new :phantomjs
 end
 
+links = Array[
+  'Insights',
+  'Synthetics',
+  'Agent Installation',
+  'APM',
+  'Mobile Monitoring',
+  'Server Monitoring',
+  'Finding Information',
+  'Webcast Trainings'
+]
+
 while true do
   @b.goto @rooturl
-  @b.goto @rooturl + '#insights'
-  @b.goto @rooturl + '#synthetics'
-  @b.goto @rooturl + '#agent-install'
-  @b.goto @rooturl + '#apm'
-  @b.goto @rooturl + '#mobile'
-  @b.goto @rooturl + '#server'
-  @b.goto @rooturl + '#info'
+  links.each do |text|
+    link = @b.link :text => text
+    if link.exists? 
+      link.click
+    end
+  end
 end

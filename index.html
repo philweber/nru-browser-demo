@@ -7,10 +7,11 @@
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+	<script src="js/nr-agent.min.js"></script>
 
     <title>New Relic | New Relic University</title>
 
-	<link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="./css/main.css" />
 	<style type="text/css">
 		#tabs {	background: #fff; margin-top: 12pt; width: 48em; }
 		#tabs div.displayed > * { margin-left: 230px; width: 34em; }
@@ -632,37 +633,51 @@
 		</footer>
 	</div>
 	<script>
-    clickCount = 0;
 	$(function() {
-		$("#tabs").easytabs(
-			{
-  				animate: false,
-				tabActiveClass: "selected-tab",
-				panelActiveClass: "displayed"
-			}
-		);
+    	clickCount = 0;
+		error = new Error("Congratulations! You found the Easter Egg.")
 
-		$('.panel-heading.collapsable').on("click", function (e) {
-			// throw error on every third panel click
-			clickCount++;
-			if (clickCount % 3 == 0)
-			{
-				throw new Error("Congratulations! You found the Easter Egg.");
-				clickCount = 0;
+		$("#tabs")
+			.easytabs(
+				{
+					animate: false,
+					tabActiveClass: "selected-tab",
+					panelActiveClass: "displayed"
+				}
+			)
+			.bind('easytabs:after', function() {
+				clickCount++;
+				if (clickCount % 3 == 0)
+				{
+					throw error;
+					clickCount = 0;
+				}
 			}
-			
-			if ($(this).hasClass('panel-collapsed')) {
-				// expand the panel
-				$(this).parents('.panel').find('.panel-body').slideDown();
-				$(this).removeClass('panel-collapsed');
-				$(this).find('i').removeClass('fa-toggle-down').addClass('fa-toggle-up');
-			}
-			else {
-				// collapse the panel
-				$(this).parents('.panel').find('.panel-body').slideUp();
-				$(this).addClass('panel-collapsed');
-				$(this).find('i').removeClass('fa-toggle-up').addClass('fa-toggle-down');
-			}
+		);			
+
+		jQuery(function ($) {
+			$('.panel-heading.collapsable').on("click", function (e) {
+				if ($(this).hasClass('panel-collapsed')) {
+					// expand the panel
+					$(this).parents('.panel').find('.panel-body').slideDown();
+					$(this).removeClass('panel-collapsed');
+					$(this).find('i').removeClass('fa-toggle-down').addClass('fa-toggle-up');
+				}
+				else {
+					// collapse the panel
+					$(this).parents('.panel').find('.panel-body').slideUp();
+					$(this).addClass('panel-collapsed');
+					$(this).find('i').removeClass('fa-toggle-up').addClass('fa-toggle-down');
+				}
+
+				// throw error on every third panel click
+				clickCount++;
+				if (clickCount % 3 == 0)
+				{
+					throw error;
+					clickCount = 0;
+				}
+			});
 		});
 	});
 	</script>
