@@ -634,25 +634,29 @@
 	</div>
 	<script>
 	$(function() {
-	    	clickCount = 0;
-		$("#tabs").easytabs(
-			{
-  				animate: false,
-				tabActiveClass: "selected-tab",
-				panelActiveClass: "displayed"
-			}
-		);
+    	clickCount = 0;
+		error = new Error("Congratulations! You found the Easter Egg.")
 
-		jQuery(function ($) {
-			$('.panel-heading.collapsable').on("click", function (e) {
-				// throw error on every third panel click
+		$("#tabs")
+			.easytabs(
+				{
+					animate: false,
+					tabActiveClass: "selected-tab",
+					panelActiveClass: "displayed"
+				}
+			)
+			.bind('easytabs:after', function() {
 				clickCount++;
 				if (clickCount % 3 == 0)
 				{
-					throw new Error("Congratulations! You found the Easter Egg.");
+					throw error;
 					clickCount = 0;
 				}
-			
+			}
+		);			
+
+		jQuery(function ($) {
+			$('.panel-heading.collapsable').on("click", function (e) {
 				if ($(this).hasClass('panel-collapsed')) {
 					// expand the panel
 					$(this).parents('.panel').find('.panel-body').slideDown();
@@ -664,6 +668,14 @@
 					$(this).parents('.panel').find('.panel-body').slideUp();
 					$(this).addClass('panel-collapsed');
 					$(this).find('i').removeClass('fa-toggle-up').addClass('fa-toggle-down');
+				}
+
+				// throw error on every third panel click
+				clickCount++;
+				if (clickCount % 3 == 0)
+				{
+					throw error;
+					clickCount = 0;
 				}
 			});
 		});
