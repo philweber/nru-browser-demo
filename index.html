@@ -678,6 +678,13 @@
 			}
 		});
 	});
+	
+	$(window).load(
+		function() {
+			var domDuration = (performance.timing.domComplete - performance.timing.navigationStart) / 1000;
+			newrelic.setCustomAttribute('domLoadDuration', domDuration);
+		}	
+	);
 	</script>
 </body>
 </html>
