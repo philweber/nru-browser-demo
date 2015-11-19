@@ -678,18 +678,6 @@
 			}
 		});
 	});
-	
-	$(window).load(
-		function() {
-			var domDuration = (performance.timing.domContentLoadedEventEnd - performance.timing.responseEnd);
-			var pageRenderDuration = (performance.timing.domComplete - performance.timing.domContentLoadedEventEnd);
-			var networkDuration = (performance.timing.domComplete - performance.timing.navigationStart) - pageRenderDuration - domDuration;
-			
-			newrelic.setCustomAttribute('domLoadDuration', domDuration / 1000);
-			newrelic.setCustomAttribute('pageRenderDuration', pageRenderDuration / 1000);
-			newrelic.setCustomAttribute('networkDuration', networkDuration / 1000);
-		}	
-	);
 	</script>
 </body>
 </html>
