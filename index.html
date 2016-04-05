@@ -22,7 +22,6 @@
 		ul.tabs li a:hover { text-decoration: underline; }
 		ul.tabs li.selected-tab { background: #fff; position: relative; left: 1px; border: solid 1px #ccc; border-right: 0; }
 		ul.tabs li a.selected-tab { font-weight: bold; text-decoration: none; }
-
 		.panel { margin-bottom:20px;background-color:#fff;border:1px solid transparent;border-radius:4px;-webkit-box-shadow:0 1px 1px rgba(0,0,0,0.05);box-shadow:0 1px 1px rgba(0,0,0,0.05); }
 		.panel-body { padding:15px; }
 		.panel-heading { padding:10px 15px;border-bottom:1px solid transparent;border-top-right-radius:3px;border-top-left-radius:3px; }
@@ -51,7 +50,6 @@
 		.panel-primary > .panel-footer + .panel-collapse > .panel-body { border-bottom-color:#337ab7; }
 		.panel-heading > .dropdown .dropdown-toggle,.panel-title > a { color:inherit; }
 		.panel-heading + .list-group .list-group-item:first-child,.list-group + .panel-footer { border-top-width:0; }
-
         .social iframe { vertical-align: middle; }
         .social .Facebook { margin-top: 2px; }
         .social span { display: inline-block; width: 95px; }
@@ -636,7 +634,6 @@
 	$(function() {
     	clickCount = 0;
 		error = new Error("Congratulations! You found the Easter Egg.");
-
 		$("#tabs")
 			.easytabs(
 				{
@@ -654,30 +651,28 @@
 				}
 			}
 		);			
-
-        $('.panel-heading.collapsable').on("click", function (e) {
-            if ($(this).hasClass('panel-collapsed')) {
-                // expand the panel
-                $(this).parents('.panel').find('.panel-body').slideDown();
-                $(this).removeClass('panel-collapsed');
-                $(this).find('i').removeClass('fa-toggle-down').addClass('fa-toggle-up');
-            }
-            else {
-                // collapse the panel
-                $(this).parents('.panel').find('.panel-body').slideUp();
-                $(this).addClass('panel-collapsed');
-                $(this).find('i').removeClass('fa-toggle-up').addClass('fa-toggle-down');
-            }
-
-            // throw error on every third panel click
-            clickCount++;
-            if (clickCount % 3 == 0)
-            {
-                throw error;
-                clickCount = 0;
-            }
-        });
-    });
+		$('.panel-heading.collapsable').on("click", function (e) {
+			if ($(this).hasClass('panel-collapsed')) {
+				// expand the panel
+				$(this).parents('.panel').find('.panel-body').slideDown();
+				$(this).removeClass('panel-collapsed');
+				$(this).find('i').removeClass('fa-toggle-down').addClass('fa-toggle-up');
+			}
+			else {
+				// collapse the panel
+				$(this).parents('.panel').find('.panel-body').slideUp();
+				$(this).addClass('panel-collapsed');
+				$(this).find('i').removeClass('fa-toggle-up').addClass('fa-toggle-down');
+			}
+			// throw error on every third panel click
+			clickCount++;
+			if (clickCount % 3 == 0)
+			{
+				throw error;
+				clickCount = 0;
+			}
+		});
+	});
 	</script>
 </body>
 </html>
